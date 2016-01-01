@@ -1,0 +1,91 @@
+<!--
+
+
+	||::|:||   .--------,
+     |:||:|:|   |_______ /        .-.
+     ||::|:|| ."`  ___  `".    {\('v')/}
+     \\\/\///:  .'`   `'.  ;____`(   )'____
+      \====/ './  o   o  \|~     ^" "^   //
+       \\//   |   ())) .  |   The answer  \
+    	||     \ `.__.'  /| is still not //
+    	||   _{``-.___.-'\|  in the code  \
+    	|| _." `-.____.-'`|    ___       //
+    	||`        __ \   |___/   \_______\
+      ."||        (__) \    \|     /
+     /   `\/       __   vvvvv'\___/
+     |     |      (__)        |
+      \___/\                 /
+    	||  |     .___.     |
+    	||  |       |       |
+    	||.-'       |       '-.
+        ||          |          )
+    	||----------'---------'
+ 
+ 
+ -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html><html><head><meta charset=utf-8><title>5469746c65</title><script src=http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js></script><link href=http://meyerweb.com/eric/tools/css/reset/reset.css rel=stylesheet type=text/css><link href="http://fonts.googleapis.com/css?family=Inconsolata:700" rel=stylesheet type=text/css><style>body,html{height:100%}body{display:flex;justify-content:center;align-items:center;font-family:Inconsolata,monospace;color:#fff;background-color:#000;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}#content{text-align:center}#message{margin-bottom:20px}#clockdiv{padding:10px}#clockdiv:hover{color:#000;cursor:pointer;background:#fff}.square{width:40px;height:40px;margin-right:5px;position:absolute;top:10px;opacity:0}.square-final{width:auto!important;padding:13px}</style><body data-index=-1><div id=squares></div><div id=content><div id=message>You have until the end of <span id=k>the</span> year.</div><div id=clockdiv><span class=days></span> days, <span class=hours></span> hours, <span class=minutes></span> minutes, and <span class=seconds></span> seconds</div></div><script>function getTimeRemaining(e){var a=Date.parse(e)-Date.now(),t=Math.floor(a/1e3%60),n=Math.floor(a/1e3/60%60),o=Math.floor(a/36e5%24),s=Math.floor(a/864e5);return{total:a,days:s,hours:o,minutes:n,seconds:t}}function initializeClock(e,a){function t(){var e=getTimeRemaining(a);o.innerHTML=e.days,s.innerHTML=e.hours,r.innerHTML=e.minutes,d.innerHTML=e.seconds,e.total<=0&&clearInterval(c)}var n=document.getElementById(e),o=n.querySelector(".days"),s=n.querySelector(".hours"),r=n.querySelector(".minutes"),d=n.querySelector(".seconds");t();var c=setInterval(t,1e3)}function addSquares(){for(var e=0;e<hd.length;e++){var a=50*e+10;$("#squares").append("<div class='square sqaure"+e+"' style='background: #"+hd[e]+"; left: "+a+"px;'></div>")}var a=50*hd.length+10;$("#squares").append("<div class='square square-final' style='left: "+a+"px;'>&starf; Save this for later.</div>"),$(".square").each(function(e){$(this).delay(400*e).fadeTo("slow",1)})}function sendMsg(e){$.ajax({type:"POST",url:"https://api.pushover.net/1/messages.json",datatype:"application",data:{token:"a5VuZtNPjUHT2mJtUtRFPXMZ8yC82d",user:"udhFrdDcKQgbe8HCZi5hLdmhv2VgKz",message:e},success:function(){console.log("Message sent")},error:function(){console.log("Couldn't send message")}})}var totalLoops=0,deadline=new Date(Date.parse("31 Dec 2015 23:59:59 EST"));initializeClock("clockdiv",deadline);var a=["33642e","676464","2e6973","000"],hd=["676574","2c2069","732c20","686572","65212c","205570","6c6f61","642c20","737461","727465","642e2c","207765","627369","74652c","204164","6d696e","205061","6e656c"];$(document).ready(function(){sendMsg("go.rb.gd is loaded."),ln=a.length,$("#clockdiv").click(function(){var e=$("body").data("index");e++,e>=ln&&(e=0,totalLoops++),$("body").css({"background-color":"#"+a[e]}),$("body").data("index",e),8==totalLoops&&addSquares()})}),$("#k").hover(function(){$("#k").text("hex")},function(){$("#k").text("the")});</script>

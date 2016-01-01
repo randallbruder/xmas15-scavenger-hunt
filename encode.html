@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>encode</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    
+    
+</head>
+<body>
+	<div id="content"></div>
+    
+</body>
+
+
+<script>
+	
+	$("#content").text(encode("HARD MODE: Part 3 is discovered."));
+	
+	function encode(msg) {
+		
+		for (var i = 0; i < msg.length; i++) {
+			msg = msg.substr(0, i) + String.fromCharCode( msg.charCodeAt(i) + 1) + msg.substr(i + 1) ;
+		}
+		return msg;
+	}
+	
+</script>
+
+</html>

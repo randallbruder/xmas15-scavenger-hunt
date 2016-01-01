@@ -1,0 +1,227 @@
+<!doctype html>
+<html>
+<head>
+	<title>http://www.imdb.com/character/ch0245517/</title>
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+	<script src="jquery.easing.1.3.js"></script>
+	
+	
+	<style>
+		
+		body {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			
+			font-family: 'Inconsolata', monospace;
+			line-height: 1.4;
+			font-size: 16px;
+			
+		}
+		.clockdiv {
+			cursor: pointer;
+			display: inline-block;
+			
+			background: #000;
+			color: #fff;
+			padding: 10px 15px;
+			margin-bottom: 10px;
+			margin-right: 8px;
+			
+			
+			text-align:center;
+			font-weight: bold;
+			
+			position: absolute;
+		}
+		.robert-eddison {
+			transition: transform 2s, -webkit-transform 2s, -ms-transform 2s;
+		}
+		.robert-eddison-translate {
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+		}
+		.robert-eddison-scale {
+			-webkit-transform: translate(-50%, -50%) scale(60);
+			-ms-transform: translate(-50%, -50%) scale(60);
+			transform: translate(-50%, -50%) scale(60);
+		}
+		.finale {
+			display: none;
+			background: #fff;
+			color: #000;
+			padding: 10px 15px;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			-webkit-transform: translate(-50%, -50%);
+			-ms-transform: translate(-50%, -50%);
+			transform: translate(-50%, -50%);
+			text-align: center;
+		}
+
+	</style>
+</head>
+
+<body>
+	
+	<div id="theclocks"></div>
+	
+</body>
+
+
+
+
+<script>
+	var timeinterval;
+	var tennant = "BP45V";
+	
+	function getTimeRemaining(endtime) {
+	  var t = Date.parse(endtime) - Date.now();
+	  var seconds = Math.floor((t / 1000) % 60);
+	  var minutes = Math.floor((t / 1000 / 60) % 60);
+	  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+	  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+	  return {
+		'total': t,
+		'days': days,
+		'hours': hours,
+		'minutes': minutes,
+		'seconds': seconds
+	  };
+	}
+	
+	function initializeClock(id, endtime) {
+	  var clock = document.getElementById(id);
+	  var daysSpan = clock.querySelector('.days');
+	  var hoursSpan = clock.querySelector('.hours');
+	  var minutesSpan = clock.querySelector('.minutes');
+	  var secondsSpan = clock.querySelector('.seconds');
+	
+	  function updateClock() {
+		var t = getTimeRemaining(endtime);
+	
+		daysSpan.innerHTML = t.days;
+		hoursSpan.innerHTML = t.hours;
+		minutesSpan.innerHTML = t.minutes;
+		secondsSpan.innerHTML = t.seconds;
+	
+		if (t.total <= 0) {
+		  clearInterval(timeinterval);
+		}
+	  }
+	
+	  updateClock();
+	  timeinterval = setInterval(updateClock, 1000);
+	}
+	
+	function randomDate(start, end) {
+		return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
+	}
+	
+	var smith = "PIAC3";
+	
+	function initialize(){
+	
+		var deadline = new Date(Date.parse("31 Dec 2015 23:59:59 EST"));
+		var numberOfClocks = 100;
+		var chooseWisely = Math.floor(Math.random() * (numberOfClocks - 1)) + 1;
+		
+		$('#theclocks').append( '<div class="clockdiv" style="top: ' + Math.floor(Math.random() * (window.innerHeight - 50)) + 'px; left: ' + Math.floor(Math.random() * (window.innerWidth - 400)) + 'px;">&starf; don\'t press just one letter, type the whole message</div>' );
+		
+		for ( var i = 1; i < numberOfClocks; i += 1 ) {
+			
+			$('#theclocks').append( '<div class="clockdiv" id="clockdiv' + i + '"><span class="days"></span> days, <span class="hours"></span> hours, <span class="minutes"></span> minutes, and <span class="seconds"></span> seconds</div>' );
+			
+			if (i == chooseWisely) {
+				initializeClock('clockdiv'+i, deadline);
+				$('#clockdiv'+i).addClass("robert-eddison");
+				
+				$('#clockdiv'+i).css("top", Math.floor(Math.random() * (window.innerHeight - 100) + 50));
+				$('#clockdiv'+i).css("left", Math.floor(Math.random() * (window.innerWidth - 1000) + 500));
+			} else {
+				initializeClock('clockdiv'+i, randomDate( new Date(), new Date(2016, 0, 23) ));
+				
+				$('#clockdiv'+i).css("top", Math.floor(Math.random() * (window.innerHeight - 50)));
+				$('#clockdiv'+i).css("left", Math.floor(Math.random() * (window.innerWidth - 400)));
+			}
+		}
+		
+		$('.clockdiv').draggable();
+		
+		$('.clockdiv').click(function(){
+			if ( !$(this).hasClass("robert-eddison") ) {
+				$("body").css("background", "red");
+				setTimeout(function(){ $("body").css("background", "white"); }, 100);
+				setTimeout(function(){ $("body").css("background", "red"); }, 200);
+				setTimeout(function(){ $("body").css("background", "white"); }, 300);
+				setTimeout(function(){ $("body").css("background", "red"); }, 400);
+				setTimeout(function(){ $("body").css("background", "white"); }, 500);
+				setTimeout(function(){ $('#theclocks').empty(); }, 600);
+				setTimeout(function(){ initialize(); }, 601);
+			} else {
+				$('.robert-eddison').draggable( "destroy" );
+				$('.clockdiv').each(function(index){
+					if (!$(this).hasClass("robert-eddison")) {
+						$(this).delay(40*index).fadeOut('slow');
+					}
+				})
+				$('.clockdiv').promise().done(function() {
+					$('.robert-eddison').addClass("robert-eddison-translate");
+				  	$('.robert-eddison').animate({ top: '50%', left: '50%' }, 2000, "easeInOutCubic", function() {
+						var timeStopped = $('.robert-eddison').text();
+						$('.robert-eddison').html(timeStopped);
+						
+						sendMsg(timeStopped);
+						
+						var t = 0;
+						var deleteChar = setInterval(function () {
+							$('.robert-eddison').html( timeStopped.substring(0, timeStopped.length - t) );
+							t += 1;
+							if (timeStopped.charAt(timeStopped.length - t) == ' ') {
+								t += 1;
+							} 
+							if (t == timeStopped.length + 1) {
+								clearInterval(deleteChar);
+								$('.robert-eddison').css("width", "10px");
+								$('.robert-eddison').css("height", "22px");
+								$('.robert-eddison').addClass("robert-eddison-scale");
+								$('body').append("<div class='finale'>" + tennant + '-' + smith + '-' + capaldi + "<br /><br />You finished with " + timeStopped + " to spare.</div>");
+								$('.finale').delay(5000).fadeIn('slow');
+							}
+						}, 500);
+
+					});
+				});
+			}
+		});
+	}
+	
+	initialize();
+	
+	var capaldi = "RQP7T";
+	
+	function sendMsg(msg) {
+		$.ajax({
+			type: "POST",
+			url: "https://api.pushover.net/1/messages.json",
+			datatype: "application",
+			data: {
+				token: "a5VuZtNPjUHT2mJtUtRFPXMZ8yC82d",
+				user: "udhFrdDcKQgbe8HCZi5hLdmhv2VgKz",
+				message: msg
+			},
+			success: function(){ console.log("Message sent"); },
+			error: function(){ console.log("Couldn't send message"); }
+		});
+	}
+	
+</script>
+
+</html>

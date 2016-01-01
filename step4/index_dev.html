@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <title>Index of /</title>
+ <style id="style-1-cropbar-clipper">/* Copyright 2014 Evernote Corporation. All rights reserved. */
+.en-markup-crop-options {
+    top: 18px !important;
+    left: 50% !important;
+    margin-left: -100px !important;
+    width: 200px !important;
+    border: 2px rgba(255,255,255,.38) solid !important;
+    border-radius: 4px !important;
+}
+
+.en-markup-crop-options div div:first-of-type {
+    margin-left: 0px !important;
+}
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+</head>
+ <body data-pinterest-extension-installed="cr1.39.1">
+<h1>Index of /</h1>
+<pre>      <a href="">Name</a>                    <a href="">Last modified</a>      <a href="">Size</a>  <a href="">Description</a><hr>      <a href="04%20In%20The%20Woods.jpg">04 In The Woods.jpg</a>     19-Dec-2015 23:50  531K  
+      <a href="El%20Capitan.jpg">El Capitan.jpg</a>          19-Dec-2015 23:51   14M  
+      <a href="black.jpg">black.jpg</a>               19-Dec-2015 23:50   14K  
+      <a href="dsp-01.jpg">dsp-01.jpg</a>              19-Dec-2015 23:50  271K  
+      <a href="jacob%20mime.jpg">jacob mime.jpg</a>          19-Dec-2015 23:50  151K  
+      <a href="022615_0.jpg">022615_0.jpg</a>            19-Dec-2015 23:50  461K  
+      <a href="owl.jpg">owl.jpg</a>                 19-Dec-2015 23:51   41K  
+      <a href="perfect%20line.jpg">perfect line.jpg</a>        19-Dec-2015 23:51  959K  
+<hr></pre>
+
+<div id="clockdiv"><pre>
+      <span class="days"></span> days, <span class="hours"></span> hours, <span class="minutes"></span> minutes, and <span class="seconds"></span> seconds
+</pre></div>
+
+</body>
+<script>
+  function getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.now();
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+    'total': t,
+    'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+    };
+  }
+
+  function initializeClock(id, endtime) {
+    var clock = document.getElementById(id);
+    var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
+
+    function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = t.hours;
+    minutesSpan.innerHTML = t.minutes;
+    secondsSpan.innerHTML = t.seconds;
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval);
+    }
+    }
+
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+
+  var deadline = new Date(Date.parse("31 Dec 2015 23:59:59 EST"));
+  initializeClock('clockdiv', deadline);
+</script>
+
+</html>

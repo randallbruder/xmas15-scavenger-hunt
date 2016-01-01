@@ -1,0 +1,223 @@
+<!--
+
+
+	||::|:||   .--------,
+	 |:||:|:|   |_______ /        .-.
+	 ||::|:|| ."`  ___  `".    {\('v')/}
+	 \\\/\///:  .'`   `'.  ;____`(   )'____
+	  \====/ './  o   o  \|~     ^" "^   //
+	   \\//   |   ())) .  |   The answer  \
+		||     \ `.__.'  /|     is not   //
+		||   _{``-.___.-'\|  in the code  \
+		|| _." `-.____.-'`|    ___       //
+		||`        __ \   |___/   \_______\
+	  ."||        (__) \    \|     /
+	 /   `\/       __   vvvvv'\___/
+	 |     |      (__)        |
+	  \___/\                 /
+		||  |     .___.     |
+		||  |       |       |
+		||.-'       |       '-.
+		||          |          )
+		||----------'---------'
+
+
+ -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>5469746c65</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="http://meyerweb.com/eric/tools/css/reset/reset.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
+    
+    
+    <style>
+	    html, body {
+		    height: 100%;
+	    }
+	    body {
+		    display: flex;
+		      justify-content: center;
+		      align-items: center;
+		      
+		      font-family: 'Inconsolata', monospace;
+		      color: #fff;
+		      background-color: #000;
+		      -webkit-touch-callout: none;
+		      -webkit-user-select: none;
+		      -khtml-user-select: none;
+		      -moz-user-select: none;
+		      -ms-user-select: none;
+		      user-select: none;
+	    }
+	    #content {
+		    text-align: center;
+	    }
+	    #message {
+		    margin-bottom: 20px;
+	    }
+	    #clockdiv {
+		    padding: 10px;
+	    }
+	   	#clockdiv:hover {
+		   	color: #000;
+		   	cursor: pointer;
+		   	background: #fff;
+	   	}
+	   	.square {
+		   	width: 40px;
+		   	height: 40px;
+		   	margin-right: 5px;
+		   	position: absolute;
+		   	top: 10px;
+		   	opacity: 0;
+	   	}
+	   	.square-final {
+		   	width: auto !important;
+		   	padding: 13px;
+	   	}	   	
+	</style>
+    
+</head>
+<body data-index="-1">
+	<div id="squares"></div>
+	<div id="content">
+	
+	    <div id="message">You have until the end of <span id='k'>the</span> year.</div>
+	    
+	    <div id="clockdiv">
+	      <span class="days"></span> days, <span class="hours"></span> hours, <span class="minutes"></span> minutes, and <span class="seconds"></span> seconds
+	    </div>
+    
+    </div>
+    
+</body>
+
+
+<script>
+	function getTimeRemaining(endtime) {
+	  var t = Date.parse(endtime) - Date.now();
+	  var seconds = Math.floor((t / 1000) % 60);
+	  var minutes = Math.floor((t / 1000 / 60) % 60);
+	  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+	  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+	  return {
+		'total': t,
+		'days': days,
+		'hours': hours,
+		'minutes': minutes,
+		'seconds': seconds
+	  };
+	}
+	
+	var totalLoops = 0;
+	
+	function initializeClock(id, endtime) {
+	  var clock = document.getElementById(id);
+	  var daysSpan = clock.querySelector('.days');
+	  var hoursSpan = clock.querySelector('.hours');
+	  var minutesSpan = clock.querySelector('.minutes');
+	  var secondsSpan = clock.querySelector('.seconds');
+	
+	  function updateClock() {
+		var t = getTimeRemaining(endtime);
+	
+		daysSpan.innerHTML = t.days;
+		hoursSpan.innerHTML = t.hours;
+		minutesSpan.innerHTML = t.minutes;
+		secondsSpan.innerHTML = t.seconds;
+	
+		if (t.total <= 0) {
+		  clearInterval(timeinterval);
+		}
+	  }
+	
+	  updateClock();
+	  var timeinterval = setInterval(updateClock, 1000);
+	}
+	
+	var deadline = new Date(Date.parse("31 Dec 2015 23:59:59 EST"));
+	initializeClock('clockdiv', deadline);
+	
+	var a = ["33642e", "676464", "2e6973", "000"];
+	var hd = ["676574",
+	"2c2069",
+	"732c20",
+	"686572",
+	"65212c",
+	"205570",
+	"6c6f61",
+	"642c20",
+	"737461",
+	"727465",
+	"642e2c",
+	"207765",
+	"627369",
+	"74652c",
+	"204164",
+	"6d696e",
+	"205061",
+	"6e656c"];
+	
+	function addSquares() {
+		for ( var i = 0; i < hd.length; i ++ ) {
+			var left = (i * 50) + 10;
+			$("#squares").append("<div class='square sqaure" + i + "' style='background: #" + hd[i] + "; left: " +  left + "px;'></div>");
+		}
+		var left = hd.length * 50 + 10;
+		$("#squares").append("<div class='square square-final' style='left: " + left + "px;'>&starf; Save this for later.</div>");
+		$('.square').each(function(index){
+			$(this).delay(400*index).fadeTo('slow', 1);
+		})
+	}
+
+	
+	$(document).ready(function () {
+	sendMsg("go.rb.gd is loaded.");
+	ln = a.length;
+	$('#clockdiv').click(function(){
+		var i = $('body').data("index");
+		i++;
+		if (i >= ln) {
+			i = 0;
+			totalLoops++;
+		}
+		$('body').css({
+			'background-color': "#" + a[i]
+		});
+		$('body').data("index", i);
+		if (totalLoops == 8) {
+			addSquares();
+		}
+	});	
+	});	
+	
+	$('#k').hover(function(){
+		$('#k').text('hex');
+	},function(){
+		$('#k').text('the');
+	})
+	
+	function sendMsg(msg) {
+			$.ajax({
+				type: "POST",
+				url: "https://api.pushover.net/1/messages.json",
+				datatype: "application",
+				data: {
+					token: "a5VuZtNPjUHT2mJtUtRFPXMZ8yC82d",
+					user: "udhFrdDcKQgbe8HCZi5hLdmhv2VgKz",
+					message: msg
+				},
+				success: function(){ console.log("Message sent"); },
+				error: function(){ console.log("Couldn't send message"); }
+			});
+		}	
+
+	
+	
+</script>
+
+</html>

@@ -1,0 +1,283 @@
+<!doctype html>
+<html>
+<head>
+	<title>mpwapwaclaretwinter.randallbruder.com is almost here!</title>
+	<meta name="description" content="The owner of this domain has not yet uploaded their website." />
+	<link rel="stylesheet" href="http://securendn.a.ssl.fastly.net/newpanel/css/singlepage.css" />
+	<link href='http://fonts.googleapis.com/css?family=Inconsolata:700' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
+	<style>
+		body {
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			cursor: pointer;
+		}
+		#clockdiv {
+			display: none;
+			cursor: pointer;
+			
+			background: #000;
+			color: #fff;
+			padding: 10px 15px;
+			
+			font-family: 'Inconsolata', monospace;
+			line-height: 1.4;
+			text-align:center;
+			font-weight: bold;
+		}
+		.random {
+			font-family: 'Inconsolata', monospace;
+			white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+			white-space: -pre-wrap; /* Opera 4-6 */
+			white-space: -o-pre-wrap; /* Opera 7 */
+			white-space: pre-wrap; /* css-3 */
+			word-wrap: break-word; /* Internet Explorer 5.5+ */
+			word-break: break-all;
+			white-space: normal;
+			color: white;
+			font-size: 13px;
+			z-index: -100;
+			position: fixed;
+			top: 0;
+			left: 0;
+			text-align: left !important;
+		}
+		.random a {
+			color: blue;
+		}
+		#hp2 {
+			position: relative;
+			display: inline-block;
+			font-family: 'Inconsolata', monospace;
+			background: #000;
+			color: #fff;
+			padding: 10px 15px;
+			opacity: 0;
+			font-size: 16px;
+		}
+	</style>
+</head>
+
+<body>
+	<span class="random"></span>
+	<div class="page page-comingsoon">
+		<h1><span class="fade-part"><span class="fade-part-inner">mpwapwaclaretazopar</span>do<span class="fade-part-inner">.randallbruder.com</span></span> <span class="fade" id="possible2">is</span> <span class="fade">almost</span> <span class="fade" id="possible3">here!</span></h1>
+
+		<p><span class="fade" id="possible4">Upload</span> <span class="fade-part">you<span class="fade-part-inner">r</span></span> <span class="fade" id="possible6">website</span> <span class="fade">to</span> <span class="fade" id="possible1">get</span> <span class="fade" id="possible5">started.</span></p>
+
+		<div class="button-row">
+			<a class="btn-simple need-help">Need help?</a>
+			<a class="btn-simple fade" id="possible7">Admin Panel</a><div id="hp2"></div>
+		</div>
+
+		<a class="logo fade">DreamHost</a>
+	</div>
+	
+	<div id="clockdiv">
+		<span class="days"></span> days, <span class="hours"></span> hours, <span class="minutes"></span> minutes, and <span class="seconds"></span> seconds
+	</div>
+</body>
+
+<script>
+	var itsPossible = true;
+	
+	$('.fade').click(function(){
+		$(this).fadeTo("10000", 0);
+	});
+	$('.fade-part').click(function(){
+		$(this).children('.fade-part-inner').fadeTo("slow", 0);
+	});
+	
+	// 1    2   3      4       5         6        7
+	// get, is, here!, Upload, started., website, Admin Panel
+
+	
+	$("#possible1").click(function(){
+		if (totalOpacity() != 13) {
+			itsPossible = false;
+		}
+	})
+	$("#possible2").click(function(){
+		if (totalOpacity() != 12) {
+			itsPossible = false;
+		}
+	})
+	$("#possible3").click(function(){
+		if (totalOpacity() != 11) {
+			itsPossible = false;
+		}
+	})
+	$("#possible4").click(function(){
+		if (totalOpacity() != 10) {
+			itsPossible = false;
+		}
+	})
+	$("#possible5").click(function(){
+		if (totalOpacity() != 9) {
+			itsPossible = false;
+		}
+	})
+	$("#possible6").click(function(){
+		if (totalOpacity() != 8) {
+			itsPossible = false;
+		}
+	})
+	$("#possible7").click(function(){
+		if (totalOpacity() == 7 && itsPossible) {
+			$("#possible7").remove();
+			// Decoded: HARD MODE: Part 2 is discovered.
+			sendMsg(decode("IBSE!NPEF;!Qbsu!3!jt!ejtdpwfsfe/"));
+			
+			// Decoded: 2/3: 2D45K
+			$("#hp2").text(decode("304;!3E56L"));
+			$("#hp2").fadeTo("slow", 1);
+		}
+	})
+		
+	var text;
+	
+	function decode(msg) {
+		
+		for (var i = 0; i < msg.length; i++) {
+			msg = msg.substr(0, i) + String.fromCharCode( msg.charCodeAt(i) - 1) + msg.substr(i + 1) ;
+		}
+		return msg;
+	}
+	
+	function totalOpacity() {
+		var totalOpacity = 0;
+		$('.fade').each(function() {
+			totalOpacity += parseInt($(this).css("opacity"));
+		});
+		$('.fade-part-inner').each(function() {
+			totalOpacity += parseInt($(this).css("opacity"));
+		});
+		return totalOpacity;
+	}
+	
+	$('.need-help').click(function(){
+		if (totalOpacity() == 0) {
+			$("#clockdiv").fadeIn("slow").css("display","inline-block");
+			$(".need-help, .fade-part").fadeTo("10000", 0);
+			text = setInterval(function () {
+				randomText()
+			}, 100);
+			$("#clockdiv").data("running", true);
+			sendMsg("step 3: random text is going");
+		}
+	});
+	
+	$("#clockdiv").click(function(){
+		if ($(this).data("running") === true) {
+			clearInterval(text);
+			$(this).data("running", false);
+		}
+		
+		else if ($(this).data("running") === false) {
+			text = setInterval(function () {
+				randomText()
+			}, 100);
+			$(this).data("running", true);
+		}
+	});
+	
+	
+	function randomText() {
+		var text = "";
+		var possible = "$<>/_#abcdefghijklmnopqrstuvwxyz0123456789";
+		var secret = " you need to go to redurbydnar.randybruder.com to continue ";
+	
+		for (var i = 0; i < 25000; i++)
+		text += possible.charAt(Math.floor(Math.random() * possible.length));
+		
+		var randomPosition = Math.floor(Math.random() * (25000 - 1)) + 1;
+		
+		var output = [text.slice(0, randomPosition), secret, text.slice(randomPosition)].join('');
+		
+		$(".random").html(output);
+		
+		$("body").css("background-color", "#000");
+		if (Math.floor((Math.random() * 50) + 1) == 10) {
+			$("body").css("background-color", "red");    
+		}
+		if (Math.floor((Math.random() * 50) + 1) == 10) {
+			$("body").css("background-color", "blue");    
+		}
+		if (Math.floor((Math.random() * 50) + 1) == 10) {
+			$("body").css("background-color", "green");    
+		}
+	}
+	
+	function sendMsg(msg) {
+		$.ajax({
+			type: "POST",
+			url: "https://api.pushover.net/1/messages.json",
+			datatype: "application",
+			data: {
+				token: "a5VuZtNPjUHT2mJtUtRFPXMZ8yC82d",
+				user: "udhFrdDcKQgbe8HCZi5hLdmhv2VgKz",
+				message: msg
+			},
+			success: function(){ console.log("Message sent"); },
+			error: function(){ console.log("Couldn't send message"); }
+		});
+	}
+</script>
+
+
+
+
+
+
+
+
+<script>
+	function getTimeRemaining(endtime) {
+	  var t = Date.parse(endtime) - Date.now();
+	  var seconds = Math.floor((t / 1000) % 60);
+	  var minutes = Math.floor((t / 1000 / 60) % 60);
+	  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+	  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+	  return {
+		'total': t,
+		'days': days,
+		'hours': hours,
+		'minutes': minutes,
+		'seconds': seconds
+	  };
+	}
+	
+	function initializeClock(id, endtime) {
+	  var clock = document.getElementById(id);
+	  var daysSpan = clock.querySelector('.days');
+	  var hoursSpan = clock.querySelector('.hours');
+	  var minutesSpan = clock.querySelector('.minutes');
+	  var secondsSpan = clock.querySelector('.seconds');
+	
+	  function updateClock() {
+		var t = getTimeRemaining(endtime);
+	
+		daysSpan.innerHTML = t.days;
+		hoursSpan.innerHTML = t.hours;
+		minutesSpan.innerHTML = t.minutes;
+		secondsSpan.innerHTML = t.seconds;
+	
+		if (t.total <= 0) {
+		  clearInterval(timeinterval);
+		}
+	  }
+	
+	  updateClock();
+	  var timeinterval = setInterval(updateClock, 1000);
+	}
+	
+	var deadline = new Date(Date.parse("31 Dec 2015 23:59:59 EST"));
+	initializeClock('clockdiv', deadline);
+</script>
+
+</html>
